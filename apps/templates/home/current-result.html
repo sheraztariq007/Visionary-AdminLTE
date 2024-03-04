@@ -1,0 +1,92 @@
+{% extends "home/index.html" %}
+
+{% block content %}
+
+<div class="content-wrapper">
+
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Dashboard</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+
+        <section class="col-lg-6 connectedSortable ui-sortable">
+
+          <div class="card card-yellow">
+            <div class="card-header ui-sortable-handle" style="cursor: move;">
+              <h3 class="card-title">
+                <i class="fas fa-robot mr-1"></i>
+                YOLO V5 Results
+              </h3>
+            </div>
+            <div class="card-body">
+              <div class="row justify-content-md-center">
+                {% if result_type == "image" %}
+                <img src="/{{v5_file_path}}" class="img-fluid" alt="" srcset="">
+                {% else %}
+                <video width="320" height="240" controls>
+                  <source src="/{{v5_file_path}}">
+                </video>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        </section>
+
+
+        <section class="col-lg-6 connectedSortable ui-sortable">
+
+          <div class="card card-purple">
+            <div class="card-header ui-sortable-handle" style="cursor: move;">
+              <h3 class="card-title">
+                <i class="fas fa-robot mr-1"></i>
+                YOLO V8 Results
+              </h3>
+            </div>
+            <div class="card-body">
+              <div class="card-body">
+                <div class="row justify-content-md-center">
+                  {% if result_type == "image" %}
+                  <img src="/{{v8_file_path}}" class="img-fluid" alt="" srcset="">
+                  {% else %}
+                  <video width="320" height="240" controls>
+                    <source src="/{{v8_file_path}}">
+                  </video>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+      <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+</div>
+
+{% endblock content %}
